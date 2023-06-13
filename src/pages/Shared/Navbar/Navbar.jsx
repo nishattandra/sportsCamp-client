@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../../assets/images/logo/logo.png'
+import logo from '../../../assets/images/logo/logo1.png'
 
 const Navbar = () => {
 
@@ -22,7 +22,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <img className='md:w-20 sm: w-12' src={logo} alt="" />
+                <img className='md:w-20 sm:w-12' src={logo} alt="" />
                 <h2 className="normal-case text-3xl font-bold mr-0">SPORT&apos;s<span className=' text-green-600'>Camp</span></h2>
             </div>
             <div className="navbar-center hidden lg:flex">
