@@ -2,15 +2,16 @@
 import React from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import img from '../../../src/assets/images/login/login.png'
 
 const Login = () => {
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row">
-                <div className=" w-1/2 mr-12">
-                    <img className='bg-none border-none' alt="" />
+                <div className="mr-12 mt-20 w-1/2" >
+                    <img className='bg-none border-none' alt="" src={img} />
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 md:mt-20">
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold text-green-600">Sign In</h1>
                         {/* for error msg */}

@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import img from '../../../src/assets/images/login/login.png'
 
 const Registration = () => {
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row mt-20">
                 <div className=" w-1/2 mr-12">
-                    <img className='bg-none border-none' alt="" />
+                    <img className='bg-none border-none' src={img} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
