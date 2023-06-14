@@ -6,10 +6,10 @@ import logo from '../../../assets/images/logo/logo1.png'
 const Navbar = () => {
 
     const navItems = <>
-        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/'>Home</NavLink> </li>
-        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/instructors'>Instructors</NavLink> </li>
-        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/classes'>Classes</NavLink> </li>
-        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/dashboard'>Dashboard</NavLink> </li>
+        <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/'>Home</NavLink> </li>
+        <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/instructors'>Instructors</NavLink> </li >
+        <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/classes'>Classes</NavLink> </li>
+        <li className='bg-white bg-opacity-70 rounded-lg'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/dashboard'>Dashboard</NavLink> </li>
     </>
     return (
         <div className="navbar h-28 mb-2 fixed z-10 bg-opacity-30 rounded-lg max-w-screen-xl md:p-10">
@@ -23,7 +23,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img className='md:w-20 sm:w-12' src={logo} alt="" />
-                <h2 className="normal-case text-3xl font-bold mr-0">SPORT&apos;s<span className=' text-green-600'>Camp</span></h2>
+                <h2 className="normal-case text-3xl font-bold text-white mr-0">SPORT&apos;s<span className=' text-green-600'>Camp</span></h2>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
