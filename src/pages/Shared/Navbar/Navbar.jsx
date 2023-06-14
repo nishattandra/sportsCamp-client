@@ -6,13 +6,13 @@ import logo from '../../../assets/images/logo/logo1.png'
 const Navbar = () => {
 
     const navItems = <>
-        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-bold')} to='/'>Home</NavLink> </li>
-        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-bold')} to='/instructors'>Instructors</NavLink> </li>
-        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-bold')} to='/classes'>Classes</NavLink> </li>
-        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-bold')} to='/dashboard'>Dashboard</NavLink> </li>
+        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/'>Home</NavLink> </li>
+        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/instructors'>Instructors</NavLink> </li>
+        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/classes'>Classes</NavLink> </li>
+        <li> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/dashboard'>Dashboard</NavLink> </li>
     </>
     return (
-        <div className="navbar h-28 mb-2 rounded-lg border-b-orange-500 md:p-10">
+        <div className="navbar h-28 mb-2 fixed z-10 bg-opacity-30 rounded-lg max-w-screen-xl md:p-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
