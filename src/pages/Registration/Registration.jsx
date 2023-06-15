@@ -7,7 +7,7 @@ import { AuthContext } from '../../Providers/AuthProviders';
 
 const Registration = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
+    const { createUser, updateUserProfile, logOut} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onSubmit = data => {
