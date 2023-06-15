@@ -34,8 +34,8 @@ const Footer = () => {
                     <img className='h-20 w-20' src={logo} alt="" />
                     <p className='font-bold'>SPORT&apos;sCamp <br />Providing reliable services since 1992</p>
                 </div>
-                <div className="md:place-self-center md:justify-self-end ">
-                    <div className="grid grid-flow-col gap-4">
+                <div className="md:place-self-center md:justify-self-end  ">
+                    <div className="grid grid-flow-col gap-4 sm:mx-auto">
                         <Link to='https://www.facebook.com/profile.php?id=100082673616604' target='_blank'><FaFacebook style={{ height: '24px', width: '24px' }}></FaFacebook></Link>
                         <Link to='https://www.linkedin.com/in/nishat-jahan-tandra-074633251/' target='_blank'><FaLinkedin style={{ height: '24px', width: '24px' }}></FaLinkedin></Link>
                         <Link to='https://www.instagram.com/nishat_jahan_tandra/' target='_blank'><FaInstagram style={{ height: '24px', width: '24px' }}></FaInstagram></Link>
