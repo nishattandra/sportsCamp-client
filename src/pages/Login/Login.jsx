@@ -1,10 +1,33 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../../src/assets/images/login/login.png'
+import { AuthContext } from '../../Providers/AuthProviders';
+import { useForm } from 'react-hook-form';
 
 const Login = () => {
+    const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    const [errormsg, setErrormsg] = useState('');
+    const { register, handleSubmit } = useForm();
+    const [visible, setVisble] = useState(false);
+    const handleVisiblity = () => {
+        setVisble(visible ? false : true);
+    };
+    const onSubmit = data => {
+        signIn(data.email, data.password)
+            .then(result => {
+                console.log(result);
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.log(error)
+                setErrormsg(error.message)
+            })
+    };
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row">
@@ -15,20 +38,22 @@ const Login = () => {
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold text-green-600">Sign In</h1>
                         {/* for error msg */}
-                        <p className='text-red-600 text-center border border-green-400 rounded-lg font-semibold'></p>
-                        <form>
+                        <p className='text-red-600 text-center border border-green-400 rounded-lg font-semibold'>{errormsg}</p>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" name='email' placeholder="email" className="input input-bordered" required />
+                                <input type="email" required  {...register("email")} name="email" placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text"
-                                    name='password' placeholder="password" className="input input-bordered" required />
+                                <div className='flex'>
+                                    <input type={visible ? "text" : "password"} required  {...register("password")} placeholder="password" className="input input-bordered" />
+                                    <p onClick={handleVisiblity}>{visible ? "Hide" : "Show"}</p>
+                                </div>
                             </div>
                             <div className="form-control mt-6">
                                 <input type="submit" value="Sign In" className="btn bg-green-600 border-none text-white font-bold" />

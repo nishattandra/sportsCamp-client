@@ -1,14 +1,20 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProviders';
 
 const Navbar = () => {
+ const {logOut,user} = useContext(AuthContext)
+ const navigate = useNavigate();
 
+}
     const navItems = <>
         <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/'>Home</NavLink> </li>
         <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/instructors'>Instructors</NavLink> </li >
         <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/classes'>Classes</NavLink> </li>
-        <li className='bg-white bg-opacity-70 rounded-lg'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/dashboard'>Dashboard</NavLink> </li>
+        {
+            user && <li className='bg-white bg-opacity-70 rounded-lg'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/dashboard'>Dashboard</NavLink> </li>
+        }
     </>
     return (
         <div className="navbar h-28 mb-2 fixed z-10 bg-opacity-30 rounded-lg max-w-screen-xl md:p-10">
@@ -29,9 +35,13 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login'>
+                <img className='w-12 border-2 rounded-full p-2' src={user?.photoURL} alt="" />
+                {
+                    !user && <Link to='/login'>
                     <button className="btn bg-green-600 border-0 mr-5 text-white font-bold">Sign In</button>
                 </Link>
+                }
+                <button onClick={handleLogOut} className="btn bg-green-600 border-0 mr-5 text-white font-bold">Sign Out</button>
             </div>
         </div>
     );
