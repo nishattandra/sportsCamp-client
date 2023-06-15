@@ -6,7 +6,9 @@ import { AuthContext } from '../../../Providers/AuthProviders';
 const Navbar = () => {
  const {logOut,user} = useContext(AuthContext)
  const navigate = useNavigate();
-
+ const handleLogOut = () => {
+    logOut();
+    navigate('/login')
 }
     const navItems = <>
         <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/'>Home</NavLink> </li>
