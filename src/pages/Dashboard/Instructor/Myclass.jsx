@@ -11,7 +11,6 @@ const Myclass = () => {
         .then(res => res.json())
         .then(data =>setAddedClasses(data))
     },[user, loading])
-    console.log(addedClasses)
     return ( 
         <div className="px-5">
             <div className="overflow-x-auto">
