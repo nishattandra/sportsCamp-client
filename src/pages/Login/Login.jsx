@@ -56,7 +56,7 @@ const Login = () => {
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold text-green-600">Sign In</h1>
                         {/* for error msg */}
-                        <p className='text-red-600 text-center border border-green-400 rounded-lg font-semibold'>{errormsg}</p>
+                        <p className='text-center font-semibold'>{errormsg}</p>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control">
                                 <label className="label">
