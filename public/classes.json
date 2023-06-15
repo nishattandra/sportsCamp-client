@@ -1,0 +1,62 @@
+[
+    {
+        "classname": "Crieket Balling",
+        "classphoto": "https://www.quranhost.com/wp-content/uploads/2023/04/learn-arabic.png",
+        "instructor": "Sakib Al Hasan",
+        "email": "sakib@hasan.com",
+        "student":100,
+        "price": 10000.00,
+        "seat":500,
+        "condition":"approved" 
+    },
+    {
+        "classname": "Arabic Language",
+        "classphoto": "https://www.quranhost.com/wp-content/uploads/2023/04/learn-arabic.png",
+        "instructor": "Abu Talib",
+        "email": "abutalib@gmail.com",
+        "student":31,
+        "price": 138.0,
+        "seat":43,
+        "condition":"approved" 
+    },
+    {
+        "classname": "Arabic Language",
+        "classphoto": "https://www.quranhost.com/wp-content/uploads/2023/04/learn-arabic.png",
+        "instructor": "Abu Talib",
+        "email": "abutalib@gmail.com",
+        "student":31,
+        "price": 138.0,
+        "seat":43,
+        "condition":"approved" 
+    },
+    {
+        "classname": "Arabic Language",
+        "classphoto": "https://www.quranhost.com/wp-content/uploads/2023/04/learn-arabic.png",
+        "instructor": "Abu Talib",
+        "email": "abutalib@gmail.com",
+        "student":31,
+        "price": 138.0,
+        "seat":43,
+        "condition":"approved" 
+    },
+    {
+        "classname": "Arabic Language",
+        "classphoto": "https://www.quranhost.com/wp-content/uploads/2023/04/learn-arabic.png",
+        "instructor": "Abu Talib",
+        "email": "abutalib@gmail.com",
+        "student":31,
+        "price": 138.0,
+        "seat":43,
+        "condition":"approved" 
+    },
+    {
+        "classname": "Arabic Language",
+        "classphoto": "https://www.quranhost.com/wp-content/uploads/2023/04/learn-arabic.png",
+        "instructor": "Abu Talib",
+        "email": "abutalib@gmail.com",
+        "student":31,
+        "price": 138.0,
+        "seat":43,
+        "condition":"approved" 
+    },
+]

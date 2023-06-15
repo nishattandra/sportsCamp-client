@@ -25,12 +25,12 @@ const Dashboard = () => {
                         <li><NavLink to="/dashboard/addclass">Add Class</NavLink></li>
                         <li><NavLink to="/dashboard/myclass">My Class</NavLink></li>
 
-                        <li><NavLink to="//dashboard/manageclass">Manage Class</NavLink></li>
+                        <li><NavLink to="/dashboard/manageclass">Manage Class</NavLink></li>
                         <li><NavLink to="/dashboard/manageusers">Manage Users</NavLink></li>
 
-                        <li><NavLink to="/selectclass">Selected Class</NavLink></li>
-                        <li><NavLink to="/enrollclass">Enrolled Class</NavLink></li>
-                        <li><NavLink to="/paymenthistory">Payment History</NavLink></li>
+                        <li><NavLink to="/dashboard/selectclass">Selected Class</NavLink></li>
+                        <li><NavLink to="/dashboard/enrollclass">Enrolled Class</NavLink></li>
+                        <li><NavLink to="/dashboard/paymenthistory">Payment History</NavLink></li>
 
                     </ul>
 
