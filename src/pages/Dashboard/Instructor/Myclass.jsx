@@ -7,7 +7,7 @@ const Myclass = () => {
     const {user, loading} = useContext(AuthContext)
     const [addedClasses, setAddedClasses] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000//instructor/addedclasses/${user?.email}`)
+        fetch(`http://localhost:5000/instructor/addedclasses/${user?.email}`)
         .then(res => res.json())
         .then(data =>setAddedClasses(data))
     },[user, loading])
@@ -19,7 +19,6 @@ const Myclass = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Banner</th>
                             <th>Title</th>
                             <th>Instructor</th>
@@ -33,30 +32,25 @@ const Myclass = () => {
                     </thead>
                     <tbody>
                         {
-                            addedClasses.map((item, index) =>
+                            addedClasses.map((item) =>
 
                                 <tr key={item._id}>
-                                    <th>
-                                        {
-                                            index + 1
-                                        }
-                                    </th>
                                     <td>
-                                        <img className="w-8" src={item.classImage} alt="" />
+                                        <img className="w-8" src={item.classphoto} alt="" />
                                     </td>
                                     <td>
                                         {
-                                            item.className
+                                            item.classname
                                         }
                                     </td>
                                     <td>
                                         {
-                                            item.instructorName
+                                            item.instructor
                                         }
                                     </td>
                                     <td>
                                         {
-                                            item.instructorEmail
+                                            item.email
                                         }
                                     </td>
                                     <td>$
@@ -66,22 +60,22 @@ const Myclass = () => {
                                     </td>
                                     <td>
                                         {
-                                            item.students
+                                            item.student
                                         }
                                     </td>
                                     <td>
                                         {
-                                            item.seats
+                                            item.seat
                                         }
                                     </td>
                                     <td>
                                         {
-                                            item.status
+                                            item.condition
                                         }
                                     </td>
                                     <td>
                                         {
-                                            (item.status == 'denied') && item.feedback
+                                            (item.condition == 'denied') && item.feedback
                                         }
                                     </td>
                                 </tr>)
