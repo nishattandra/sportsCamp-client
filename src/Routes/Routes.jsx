@@ -16,6 +16,7 @@ import Manageuser from "../pages/Dashboard/Admin/Manageuser";
 import Selectedclass from "../pages/Dashboard/Student/Selectedclass";
 import Enrolledclass from "../pages/Dashboard/Student/Enrolledclass";
 import Paymenthistory from "../pages/Dashboard/Student/Paymenthistory";
+import Privateroute from "./Privateroute";
 
   const router = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ import Paymenthistory from "../pages/Dashboard/Student/Paymenthistory";
     },
     {
       path:'dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<Privateroute><Dashboard></Dashboard></Privateroute>,
       children:[
         {
           path:'',
