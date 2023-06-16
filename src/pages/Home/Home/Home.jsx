@@ -6,7 +6,7 @@ import PopularClass from './Popular/PopularClass';
 
 const Home = () => {
     return (
-        <div>
+        <div className='dark:bg-gray-800'>
             <Banner></Banner>
             <PopularClass></PopularClass>
             <PopularInstructor></PopularInstructor>

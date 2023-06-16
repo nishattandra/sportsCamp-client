@@ -1,11 +1,22 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import useAdmin from '../../../hook/useAdmin';
 import useInstructor from '../../../hook/useInstructor';
 
 const Navbar = () => {
+    const [theme, setTheme] = useState('light');
+
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+    };
+
+    useEffect(() => {
+        document.documentElement.className = theme;
+    }, [theme]);
+
     const { logOut, user } = useContext(AuthContext)
     const navigate = useNavigate();
     const handleLogOut = () => {
@@ -13,6 +24,14 @@ const Navbar = () => {
         navigate('/login')
     }
     const navItems = <>
+        <div className="dark:bg-gray-700 rounded">
+            <button
+                className="p-1 rounded bg-gray-300 dark:bg-gray-800 text-gray-800 dark:text-gray-300"
+                onClick={toggleTheme}
+            >
+                {theme === 'light' ? 'Light' : 'Dark'}
+            </button>
+        </div>
         <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/'>Home</NavLink> </li>
         <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : ' font-extrabold')} to='/instructors'>Instructors</NavLink> </li >
         <li className='bg-white bg-opacity-70 rounded-lg mr-2'> <NavLink className={({ isActive }) => (isActive ? 'text-green-600 font-extrabold text-base' : 'font-extrabold')} to='/classes'>Classes</NavLink> </li>
@@ -21,7 +40,7 @@ const Navbar = () => {
         }
     </>
     return (
-        <div className="navbar h-28 mb-2 fixed z-10 bg-opacity-30 rounded-lg max-w-screen-xl md:p-10">
+        <div className="navbar h-28 mb-2 fixed z-10 bg-opacity-30 rounded-lg max-w-screen-xl md:p-10 dark:bg-gray-800">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
