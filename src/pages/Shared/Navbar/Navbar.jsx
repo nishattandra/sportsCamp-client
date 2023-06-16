@@ -24,9 +24,9 @@ const Navbar = () => {
         navigate('/login')
     }
     const navItems = <>
-        <div className="dark:bg-gray-700 rounded">
+        <div className="dark:bg-gray-700 rounded mr-2">
             <button
-                className="p-1 rounded bg-gray-300 dark:bg-gray-800 text-gray-800 dark:text-gray-300"
+                className="rounded bg-gray-300 dark:bg-gray-800 text-gray-800 dark:text-gray-300"
                 onClick={toggleTheme}
             >
                 {theme === 'light' ? 'Light' : 'Dark'}
@@ -40,7 +40,7 @@ const Navbar = () => {
         }
     </>
     return (
-        <div className="navbar h-28 mb-2 fixed z-10 bg-opacity-30 rounded-lg max-w-screen-xl md:p-10 dark:bg-gray-800">
+        <div className="navbar h-28 mb-2 fixed z-10 bg-opacity-30 rounded-lg md:p-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -50,7 +50,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <h2 className="normal-case text-3xl font-bold text-white mr-0">SPORT&apos;s<span className=' text-green-600'>Camp</span></h2>
+                <h2 className="normal-case md:text-3xl font-bold text-white mr-0">SPORT&apos;s<span className=' text-green-600'>Camp</span></h2>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

@@ -3,6 +3,7 @@ import { AuthContext } from "../Providers/AuthProviders";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hook/useAxiosSecure";
+import useTitle from "../hook/useTitle";
 
 const ClassCard = ({ item }) => {
     const [axiosSecure] = useAxiosSecure();
@@ -36,9 +37,10 @@ const ClassCard = ({ item }) => {
             })
         }
     }
+    useTitle('Classes')
     return (
-        <div className="card w-80 bg-base-100 shadow-xl dark:text-white dark:bg-gray-500">
-            <figure><img src={classphoto} alt="Shoes" /></figure>
+        <div className="card w-80 bg-base-100 shadow-xl dark:text-white dark:bg-gray-500 md:ml-16">
+            <figure><img className="h-72 w-72 mt-2 rounded-xl" src={classphoto} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{classname}</h2>
                 <p>Instructor: {instructor}</p>
@@ -46,8 +48,8 @@ const ClassCard = ({ item }) => {
                 <p>Available Seats: {seat}</p>
                 <p>Students: {student}</p>
                 <p>Price: {price}</p>
-                <div className="card-actions justify-end">
-                    <button onClick={handleSelect} className="btn btn-primary">Select</button>
+                <div className="card-actions justify-end ">
+                    <button onClick={handleSelect} className="btn bg-green-600 text-white">Select</button>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../../src/assets/images/login/login.png'
 import { AuthContext } from '../../Providers/AuthProviders';
 import { useForm } from 'react-hook-form';
+import useTitle from '../../hook/useTitle';
 
 const Login = () => {
     const { signIn,  googleSignIn } = useContext(AuthContext);
@@ -46,6 +47,8 @@ const Login = () => {
                     })
             })
     }
+
+    useTitle('Login')
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row">

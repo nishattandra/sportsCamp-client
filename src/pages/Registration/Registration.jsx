@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import img from '../../../src/assets/images/login/login.png'
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProviders';
+import useTitle from '../../hook/useTitle';
 
 const Registration = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -47,6 +48,7 @@ const Registration = () => {
                 console.log(error)
             })
     };
+    useTitle('Register')
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row mt-20 ">
