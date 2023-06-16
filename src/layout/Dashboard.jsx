@@ -4,8 +4,14 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
 import Navbar from '../pages/Shared/Navbar/Navbar';
 import Footer from '../pages/Shared/Footer/Footer';
+import useInstructor from '../hook/useInstructor';
+import useAdmin from '../hook/useAdmin';
+import useStudent from '../hook/useStudent';
 
 const Dashboard = () => {
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor()
+    const [isStudent] = useStudent()
     return (
         <div>
             <Navbar></Navbar>
@@ -22,16 +28,22 @@ const Dashboard = () => {
 
                         <li><NavLink to="/dashboard/"><FaHome></FaHome> Home</NavLink></li>
 
-                        <li><NavLink to="/dashboard/addclass">Add Class</NavLink></li>
-                        <li><NavLink to="/dashboard/myclass">My Class</NavLink></li>
+                        {
+                            isInstructor && <><li><NavLink to="/dashboard/addclass">Add Class</NavLink></li>
+                                <li><NavLink to="/dashboard/myclass">My Class</NavLink></li></>
+                        }
 
-                        <li><NavLink to="/dashboard/manageclass">Manage Class</NavLink></li>
-                        <li><NavLink to="/dashboard/manageusers">Manage Users</NavLink></li>
+                        {
+                            isAdmin && <><li><NavLink to="/dashboard/manageclass">Manage Class</NavLink></li>
+                                <li><NavLink to="/dashboard/manageusers">Manage Users</NavLink></li></>
+                        }
 
-                        <li><NavLink to="/dashboard/selectclass">Selected Class</NavLink></li>
-                        <li><NavLink to="/dashboard/enrollclass">Enrolled Class</NavLink></li>
-                        <li><NavLink to="/dashboard/paymenthistory">Payment History</NavLink></li>
-
+                        {
+                            isStudent && <> <li><NavLink to="/dashboard/selectclass">Selected Class</NavLink></li>
+                                <li><NavLink to="/dashboard/enrollclass">Enrolled Class</NavLink></li>
+                                <li><NavLink to="/dashboard/paymenthistory">Payment History</NavLink></li>
+                            </>
+                        }
                     </ul>
 
                 </div>

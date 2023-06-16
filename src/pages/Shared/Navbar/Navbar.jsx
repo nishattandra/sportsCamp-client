@@ -2,6 +2,8 @@
 import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
+import useAdmin from '../../../hook/useAdmin';
+import useInstructor from '../../../hook/useInstructor';
 
 const Navbar = () => {
     const { logOut, user } = useContext(AuthContext)
