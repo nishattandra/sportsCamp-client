@@ -28,7 +28,8 @@ import Payment from "../pages/Dashboard/Payment/Payment";
       children:[
         {
             path:'/',
-            element:<Home></Home>
+            element:<Home></Home>,
+            loader:()=> fetch('http://localhost:5000/populars')
         },
         {
           path:'/login',
