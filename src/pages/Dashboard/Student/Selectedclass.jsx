@@ -17,7 +17,23 @@ const Selectedclass = () => {
             return res.data;
         },
     })
-    console.log(bookedclasses)
+    const handleDelete = item => {
+                fetch(`http://localhost:5000/student/selectclass/${item._id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'content-type': 'application/json',
+                        authorization: `Bearer ${localStorage.getItem('access-token')}`
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            alert('Successfully Deleted')
+                        }
+                    })
+    }
     return (
         <div className="overflow-x-auto">
             <table className="table">
@@ -65,9 +81,9 @@ const Selectedclass = () => {
                                     {item.price}
                                 </td>
                                 <td>
-                                    
+
                                     <Link to={`/dashboard/payment/${item._id}`}><button className="btn btn-outline btn-success btn-xs">Pay</button></Link>
-                                    <button className="btn btn-outline btn-error btn-xs">Delete</button>
+                                    <button onClick={() => handleDelete(item)} className="btn btn-outline btn-error btn-xs">Delete</button>
                                 </td>
                             </tr>
                         )

@@ -11,7 +11,7 @@ const Instructors = () => {
         .then(data =>setInstructors(data))
     },[])
     return (
-        <div className="py-28 grid grid-cols-2 gap-5">
+        <div className="py-28 grid grid-cols-3 gap-5">
             {
                 instructors.map(instructor => <InstrctorCard key={instructor._id} instructor={instructor}></InstrctorCard>)
             }
