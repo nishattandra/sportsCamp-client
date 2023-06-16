@@ -7,7 +7,12 @@ const Paymenthistory = () => {
     const {user, loading} = useContext(AuthContext)
     const [payments, setPayments] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/student/payments?email=${user?.email}`)
+        fetch(`http://localhost:5000/student/payments?email=${user?.email}`,{
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('access-token')}`
+            }
+        })
         .then(res => res.json())
         .then(data =>setPayments(data))
     },[user, loading])

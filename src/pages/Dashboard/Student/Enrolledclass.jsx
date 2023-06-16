@@ -7,7 +7,12 @@ const Enrolledclass = () => {
     const {user, loading} = useContext(AuthContext)
     const [enrolllasses, setEnrollclasses] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/student/enrollclasses?email=${user?.email}`)
+        fetch(`http://localhost:5000/student/enrollclasses?email=${user?.email}`,{
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('access-token')}`
+            }
+        })
         .then(res => res.json())
         .then(data =>setEnrollclasses(data))
     },[user, loading])
