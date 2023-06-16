@@ -38,7 +38,7 @@ const Manageclass = () => {
                 console.log(data)
                 if (data.modifiedCount) {
                     refetch();
-                    alert("Feedback Successfull")
+                    alert("Feedback Successful")
                 }
             })
         setFieldValue('')
