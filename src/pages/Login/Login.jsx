@@ -73,7 +73,7 @@ const Login = () => {
                                 </label>
                                 <div className='flex'>
                                     <input type={visible ? "text" : "password"} required  {...register("password")} placeholder="password" className="input input-bordered" />
-                                    <p onClick={handleVisiblity}>{visible ? "Hide" : "Show"}</p>
+                                    <p className='flex items-center' onClick={handleVisiblity}>{visible ? "Hide" : "Show"}</p>
                                 </div>
                             </div>
                             <div className="form-control mt-6">
