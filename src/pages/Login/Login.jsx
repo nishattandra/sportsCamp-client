@@ -52,7 +52,7 @@ const Login = () => {
                 <div className="mr-12 mt-20 w-1/2" >
                     <img className='bg-none border-none' alt="" src={img} />
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 md:mt-20">
+                <div className="card flex-shrink-0 w-1/2 shadow-2xl bg-base-100 md:mt-20">
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold text-green-600">Sign In</h1>
                         {/* for error msg */}

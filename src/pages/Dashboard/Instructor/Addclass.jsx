@@ -25,7 +25,7 @@ const Addclass = () => {
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row mt-20">
-                <div className="card w-96 shadow-2xl bg-base-100">
+                <div className="card w-full shadow-2xl bg-base-100 ">
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold text-green-600">Add Class</h1>
                         <p className='text-red-600 text-center border border-green-400 rounded-lg font-semibold'></p>
