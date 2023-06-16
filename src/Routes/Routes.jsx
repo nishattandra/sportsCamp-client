@@ -32,7 +32,7 @@ import StudentRoute from "./StudentRoute";
         {
             path:'/',
             element:<Home></Home>,
-            loader:()=> fetch('http://localhost:5000/populars')
+            loader:()=> fetch('https://assignment-12-server-sand-kappa.vercel.app/populars')
         },
         {
           path:'/login',
@@ -91,7 +91,7 @@ import StudentRoute from "./StudentRoute";
         {
           path: 'payment/:id',
           element: <Payment></Payment>,
-          loader: ({params})=>fetch(`http://localhost:5000/student/payment/${params.id}`)
+          loader: ({params})=>fetch(`https://assignment-12-server-sand-kappa.vercel.app/student/payment/${params.id}`)
       }
       ]
     }

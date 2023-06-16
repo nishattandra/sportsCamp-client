@@ -22,7 +22,7 @@ const Registration = () => {
                 updateUserProfile(result.user, data.name, data.photoURL)
                 logOut()
                     .then(() => {
-                        fetch('http://localhost:5000/registeredusers', {
+                        fetch('https://assignment-12-server-sand-kappa.vercel.app/registeredusers', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

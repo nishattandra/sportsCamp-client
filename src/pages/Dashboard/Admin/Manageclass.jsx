@@ -25,7 +25,7 @@ const Manageclass = () => {
         setFeedbackItemId(id)
     }
     const handleFeedback = (feedback) => {
-        fetch(`http://localhost:5000/admin/feedback/${feedbackItemId}?feedback=${feedback}`, {
+        fetch(`https://assignment-12-server-sand-kappa.vercel.app/admin/feedback/${feedbackItemId}?feedback=${feedback}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

@@ -13,12 +13,12 @@ const Selectedclass = () => {
         queryKey: ['selectedclasses', user?.email],
         enabled: !loading,
         queryFn: async () => {
-            const res = await axiosSecure(`http://localhost:5000/student/selectedclasses?email=${user?.email}`)
+            const res = await axiosSecure(`https://assignment-12-server-sand-kappa.vercel.app/student/selectedclasses?email=${user?.email}`)
             return res.data;
         },
     })
     const handleDelete = item => {
-                fetch(`http://localhost:5000/student/selectclass/${item._id}`, {
+                fetch(`https://assignment-12-server-sand-kappa.vercel.app/student/selectclass/${item._id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json',

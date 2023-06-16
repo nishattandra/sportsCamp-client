@@ -7,7 +7,7 @@ const Enrolledclass = () => {
     const {user, loading} = useContext(AuthContext)
     const [enrolllasses, setEnrollclasses] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/student/enrollclasses?email=${user?.email}`,{
+        fetch(`https://assignment-12-server-sand-kappa.vercel.app/student/enrollclasses?email=${user?.email}`,{
             headers: {
                 'content-type': 'application/json',
                 authorization: `Bearer ${localStorage.getItem('access-token')}`

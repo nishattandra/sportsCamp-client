@@ -7,7 +7,7 @@ const Myclass = () => {
     const {user, loading} = useContext(AuthContext)
     const [addedClasses, setAddedClasses] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/instructor/addedclasses/${user?.email}`,{
+        fetch(`https://assignment-12-server-sand-kappa.vercel.app/instructor/addedclasses/${user?.email}`,{
             headers: {
                 'content-type': 'application/json',
                 authorization: `Bearer ${localStorage.getItem('access-token')}`

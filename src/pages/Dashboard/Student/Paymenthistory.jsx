@@ -7,7 +7,7 @@ const Paymenthistory = () => {
     const {user, loading} = useContext(AuthContext)
     const [payments, setPayments] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/student/payments?email=${user?.email}`,{
+        fetch(`https://assignment-12-server-sand-kappa.vercel.app/student/payments?email=${user?.email}`,{
             headers: {
                 'content-type': 'application/json',
                 authorization: `Bearer ${localStorage.getItem('access-token')}`

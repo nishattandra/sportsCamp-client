@@ -6,11 +6,10 @@ import ClassCard from "../components/ClassCard";
 const Classes = () => {
     const [classes, setClasses] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/classes')
+        fetch('https://assignment-12-server-sand-kappa.vercel.app/classes')
         .then(res => res.json())
         .then(data=> setClasses(data))
     },[])
-    console.log(classes)
     return (
         <div className="pt-28 mx-5 grid grid-cols-3 gap-5">
             {

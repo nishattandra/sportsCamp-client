@@ -12,7 +12,7 @@ const useStudent = () => {
         queryKey: ['isStudent', user?.email],
         enabled: !loading,
         queryFn: async () => {
-            const res = await axiosSecure.get(`http://localhost:5000/users/checkstudent/${user?.email}`);
+            const res = await axiosSecure.get(`https://assignment-12-server-sand-kappa.vercel.app/users/checkstudent/${user?.email}`);
             return res.data.student;
         }
     })

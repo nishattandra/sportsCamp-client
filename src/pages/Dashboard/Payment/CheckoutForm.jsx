@@ -87,7 +87,7 @@ const CheckoutForm = ({ paymentclass, price }) => {
             axiosSecure.post('/student/paymenthistory', payment)
                 .then(res => {
                     if (res.data.insertedId) {
-                        fetch(`http://localhost:5000/student/paidclass/${paymentclass._id}?status=${'paid'}`, {
+                        fetch(`https://assignment-12-server-sand-kappa.vercel.app/student/paidclass/${paymentclass._id}?status=${'paid'}`, {
                             method: 'PATCH',
                             headers: {
                                 'content-type': 'application/json',
@@ -98,7 +98,7 @@ const CheckoutForm = ({ paymentclass, price }) => {
                             .then(data => {
                                 console.log(data)
                                 if (data.modifiedCount) {
-                                    fetch(`http://localhost:5000/student/updateapproved/${paymentclass.classid}`, {
+                                    fetch(`https://assignment-12-server-sand-kappa.vercel.app/student/updateapproved/${paymentclass.classid}`, {
                                         method: 'PATCH',
                                         headers: {
                                             'content-type': 'application/json',
