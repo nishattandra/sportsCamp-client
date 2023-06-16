@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const Selectedclass = () => {
     const { user, loading } = useContext(AuthContext)
@@ -64,7 +65,8 @@ const Selectedclass = () => {
                                     {item.price}
                                 </td>
                                 <td>
-                                    <button className="btn btn-outline btn-success btn-xs">Pay</button>
+                                    
+                                    <Link to={`/dashboard/payment/${item._id}`}><button className="btn btn-outline btn-success btn-xs">Pay</button></Link>
                                     <button className="btn btn-outline btn-error btn-xs">Delete</button>
                                 </td>
                             </tr>
