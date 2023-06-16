@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
+import { useState } from "react";
 
 const Manageclass = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -9,17 +10,56 @@ const Manageclass = () => {
         const res = await axiosSecure.get('/admin/manageclasses')
         return res.data;
     })
-    const updateCondition = async(id, condition) => {try {
+    const updateCondition = async (id, condition) => {
+        try {
             const response = await axiosSecure.patch(`/admin/conditionupdate/${id}?condition=${condition}`);
             console.log(response)
             refetch()
-          } catch (error) {
-           console.log(error)
-          }
+        } catch (error) {
+            console.log(error)
+        }
     }
-    // console.log(classes)
+    const [fieldValue, setFieldValue] = useState('');
+    const [feedbackItemId, setFeedbackItemId] = useState('')
+    const handleId = (id) =>{
+        setFeedbackItemId(id)
+    }
+    const handleFeedback = (feedback) => {
+        fetch(`http://localhost:5000/admin/feedback/${feedbackItemId}?feedback=${feedback}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('access-token')}`
+            }
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    alert("Feedback Successfull")
+                }
+            })
+        setFieldValue('')
+    }
     return (
         <div className="overflow-x-auto mt-24">
+            <div>
+                <dialog id="my_modal_3" className="modal">
+                    <form method="dialog" className="modal-box">
+                        <button htmlFor="my-modal-3" className="btn btn-sm btn-circle bg-red-600 btn-ghost absolute left-2 top-2">✕</button>
+                        <div className="flex flex-col p-5 gap-5">
+                            <input className='bg-gray-100 px-5 pt-5 rounded'
+                                type="text"
+                                value={fieldValue}
+                                onChange={(e) => setFieldValue(e.target.value)}
+                             placeholder="Feedback"/>
+                            <button className="bg-green-600 text-white font-semibold rounded pb-1" onClick={() => handleFeedback(fieldValue)}>Submit</button>
+                        </div>
+                    </form>
+                </dialog>
+            </div>
             <table className="table text-xs">
                 {/* head */}
                 <thead>
@@ -50,31 +90,31 @@ const Manageclass = () => {
                                     {item.classname}
                                 </td>
                                 <td>
-                                {item.instructor}
+                                    {item.instructor}
                                 </td>
                                 <td>
-                                {item.email}
+                                    {item.email}
                                 </td>
                                 <td>
-                                {item.price}
+                                    {item.price}
                                 </td>
                                 <td>
-                                {item.student}
+                                    {item.student}
                                 </td>
                                 <td>
-                                {item.seat}
+                                    {item.seat}
                                 </td>
                                 <td>
-                                {item.condition}
+                                    {item.condition}
                                 </td>
                                 <th>
-                                    <button disabled={item.condition === 'approved' || item.condition === 'denied'} onClick={() => updateCondition(item._id, 'approved')}  className="btn btn-success btn-xs">Approve</button>
+                                    <button disabled={item.condition === 'approved' || item.condition === 'denied'} onClick={() => updateCondition(item._id, 'approved')} className="btn btn-success btn-xs">Approve</button>
                                 </th>
                                 <th>
                                     <button disabled={item.condition === 'approved' || item.condition === 'denied'} onClick={() => updateCondition(item._id, 'denied')} className="btn btn-error btn-xs">Deny</button>
                                 </th>
                                 <th>
-                                    <button className="btn btn-secondary btn-xs">Feedback</button>
+                                    <button onClick={() => {window.my_modal_3.showModal(); handleId(item._id)}} className="btn btn-secondary btn-xs">Feedback</button>
                                 </th>
                             </tr>)
                     }
