@@ -19,6 +19,9 @@ import Paymenthistory from "../pages/Dashboard/Student/Paymenthistory";
 import Privateroute from "./Privateroute";
 import Classes from "../Classes/Classes";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import StudentRoute from "./StudentRoute";
 
   const router = createBrowserRouter([
     {
@@ -59,31 +62,31 @@ import Payment from "../pages/Dashboard/Payment/Payment";
         },
         {
           path:'addclass',
-          element:<Addclass></Addclass>
+          element:<InstructorRoute><Addclass></Addclass></InstructorRoute>
         },
         {
           path:'myclass',
-          element:<Myclass></Myclass>
+          element:<InstructorRoute><Myclass></Myclass></InstructorRoute>
         },
         {
           path:'manageclass',
-          element:<Manageclass></Manageclass>
+          element:<AdminRoute><Manageclass></Manageclass></AdminRoute>
         },
         {
           path:'manageusers',
-          element:<Manageuser></Manageuser>
+          element:<AdminRoute><Manageuser></Manageuser></AdminRoute>
         },
         {
           path:'selectclass',
-          element:<Selectedclass></Selectedclass>
+          element:<StudentRoute><Selectedclass></Selectedclass></StudentRoute>
         },
         {
           path:'enrollclass',
-          element:<Enrolledclass></Enrolledclass>
+          element:<StudentRoute><Enrolledclass></Enrolledclass></StudentRoute>
         },
         {
           path:'paymenthistory',
-          element:<Paymenthistory></Paymenthistory>
+          element:<StudentRoute><Paymenthistory></Paymenthistory></StudentRoute>
         },
         {
           path: 'payment/:id',
